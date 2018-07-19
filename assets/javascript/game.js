@@ -21,14 +21,14 @@ function reset() {
     guessesSoFar = [];
 }
 
-
 //make user choose letter
 
 document.onkeyup = function (event) {
     var userGuess = event.key;
-    
+    //log user guess to console
     console.log(userGuess);
-
+   
+    //user guess equals computer's choice add win and reset game
     if (userGuess === computerChoice){
         win++;
         alert("You win! You read my mind!");
@@ -36,6 +36,8 @@ document.onkeyup = function (event) {
         reset();
     }
     
+    //user guess does not equal computer's choice
+    //add guesses left and user guesses to page
     if (userGuess !== computerChoice) {
         guessesLeft = (guessesLeft - 1);
         guessesSoFar.push(userGuess);
@@ -43,6 +45,7 @@ document.onkeyup = function (event) {
         document.querySelector("#guessesSoFar").innerHTML = "Your guesses so far: " + guessesSoFar;
     }
 
+    //user is out of guesses, loses, and reset game
     if (guessesLeft === 0) {
         loss++;
         alert("Sorry, you lose...");
