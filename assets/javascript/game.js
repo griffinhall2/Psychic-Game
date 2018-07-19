@@ -17,7 +17,7 @@ console.log(computerChoice);
 
 //reset game to start new one
 function reset() {
-    guessesLeft = 10;
+    guessesLeft = 9;
     guessesSoFar = [];
 }
 
@@ -37,8 +37,10 @@ document.onkeyup = function (event) {
     }
     
     if (userGuess !== computerChoice) {
-        guessesLeft--;
+        guessesLeft = (guessesLeft - 1);
         guessesSoFar.push(userGuess);
+        document.querySelector("#guessesLeft").innerHTML = "Guesses Left: " + guessesLeft;
+        document.querySelector("#guessesSoFar").innerHTML = "Your guesses so far: " + guessesSoFar;
     }
 
     if (guessesLeft === 0) {
