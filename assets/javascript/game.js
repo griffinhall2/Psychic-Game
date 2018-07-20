@@ -28,7 +28,7 @@ document.onkeyup = function (event) {
     //log user guess to console
     console.log(userGuess);
    
-    //user guess equals computer's choice add win and reset game
+    //show win when user guesses computer's letter correctly
     if (userGuess === computerChoice){
         win++;
         alert("You win! You read my mind!");
@@ -36,8 +36,7 @@ document.onkeyup = function (event) {
         reset();
     }
     
-    //user guess does not equal computer's choice
-    //add guesses left and user guesses to page
+    //show guesses left and user's inputs when user's guess does not equal computer's letter 
     if (userGuess !== computerChoice) {
         guessesLeft = (guessesLeft - 1);
         guessesSoFar.push(userGuess);
@@ -45,7 +44,7 @@ document.onkeyup = function (event) {
         document.querySelector("#guessesSoFar").innerHTML = "Your guesses so far: " + guessesSoFar;
     }
 
-    //user is out of guesses, loses, and reset game
+    //show losses when user is out of guesses
     if (guessesLeft === 0) {
         loss++;
         alert("Sorry, you lose...");
